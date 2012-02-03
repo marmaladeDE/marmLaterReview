@@ -14,7 +14,7 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
      *
      * @var string
      */
-    protected $_sReviewTemplateShopPlain = 'email/plain/marm_email_order_review_shop.tpl'; 
+    protected $_sReviewTemplatePlainShop = 'email/plain/marm_email_order_review_shop.tpl'; 
 
     /**
      * Name of template used for review email with trusted shops link
@@ -28,7 +28,7 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
      *
      * @var string
      */
-    protected $_sReviewTemplateShopTS = 'email/plain/marm_email_order_review_ts.tpl'; 
+    protected $_sReviewTemplatePlainTS = 'email/plain/marm_email_order_review_ts.tpl'; 
     
     
     
