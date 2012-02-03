@@ -2,18 +2,17 @@
 class marm_laterreview extends oxUBase {    
     
     public function render(){
-        $oOxidConfig                = oxConfig::getInstance();
-        $marmLaterreviewCount       = $oOxidConfig->getConfigParam( "marmLaterreviewCount" );
-        $marmLaterreviewDebug       = $oOxidConfig->getConfigParam( "marmLaterreviewDebug" );
-        $marmLaterreviewLastorder   = $oOxidConfig->getConfigParam( "marmLaterreviewLastorder" );
-        $marmLaterreviewDelay       = $oOxidConfig->getConfigParam( "marmLaterreviewDelay" );
-        $marmLaterreviewHidden      = $oOxidConfig->getConfigParam( "marmLaterreviewHidden" );
-        $marmLaterreviewMod         = $oOxidConfig->getConfigParam( "marmLaterreviewMod" );
+        $oOxidConfig = oxConfig::getInstance();
+        $marmLaterreviewCount = $oOxidConfig->getConfigParam( "marmLaterreviewCount" );
+        $marmLaterreviewDebug = $oOxidConfig->getConfigParam( "marmLaterreviewDebug" );
+        $marmLaterreviewLastorder = $oOxidConfig->getConfigParam( "marmLaterreviewLastorder" );
+        $marmLaterreviewDelay = $oOxidConfig->getConfigParam( "marmLaterreviewDelay" );
+        $marmLaterreviewHidden = $oOxidConfig->getConfigParam( "marmLaterreviewHidden" );
+        $marmLaterreviewMod = $oOxidConfig->getConfigParam( "marmLaterreviewMod" );
         
         if($marmLaterreviewHidden != $_REQUEST['token']){
             die('forbidden');
         }
-        
         
         
         $oDb = oxDb::getDb();
@@ -45,6 +44,7 @@ class marm_laterreview extends oxUBase {
                 $oDb->Execute($sUpdate);
             }
         }
+        
         
         
     }
