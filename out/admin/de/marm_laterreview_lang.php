@@ -1,6 +1,5 @@
 <?php
 /**
- * Shopgate Connector
  *
  * Copyright (c) 2011 Joscha Krug | marmalade.de
  * E-mail: mail@marmalade.de
