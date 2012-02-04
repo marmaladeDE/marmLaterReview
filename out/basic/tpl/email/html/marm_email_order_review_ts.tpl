@@ -9,10 +9,11 @@
 
     <br>
     [{ oxmultilang ident="MARM_LATERREVIEW_START" }]
-     <a href="[{ $oViewConf->getTsRatingUrl() }]" title="[{ oxmultilang ident="MARM_LATERREVIEW_TS_YOU" }]">[{$shop->imagedir}]marm_laterreview_ts_de.jpg</a>
+     <a href="[{ $oViewConf->getTsRatingUrl() }]" title="[{ oxmultilang ident="MARM_LATERREVIEW_TS_YOU" }]">
+     <br />
+     <br />
+     <img src="[{$shop->imagedir}]marm_laterreview_ts_de.jpg" alt="[{ oxmultilang ident="MARM_LATERREVIEW_TS_YOU" }]" /></a>
 
-    <br><br>
-    [{ oxmultilang ident="EMAIL_SENDEDNOW_HTML_YUORTEAM1" }] [{ $shop->oxshops__oxname->value }] [{ oxmultilang ident="EMAIL_SENDEDNOW_HTML_YUORTEAM2" }]<br>
     <br><br>
     [{ oxcontent ident="oxemailfooter" }]
     
