@@ -77,11 +77,16 @@ class marm_laterreview_do {
 		                                      AND OXORDERNR >=".(int)$marmLaterreviewLastorder."
 		                                      LIMIT ".(int)$marmLaterreviewCount;
 
-        echo ($sSelect);
+
 		$oOrders = oxNew( "oxlist" );
 		$oOrders->init( 'oxorder' );
 		$oOrders->selectString($sSelect);
 		
+        if($marmLaterreviewDebug && $oOrders->count() < 1)
+        {
+            die('Keine Mails zum Versand gefunden.');
+        }
+        
 		$oEmail = oxNew( "oxemail" );
 		
         foreach($oOrders as $oOrd){
