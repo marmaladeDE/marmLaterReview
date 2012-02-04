@@ -57,6 +57,10 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
         }
         
         $oSmarty->assign( "order", $oOrder);
+        
+        // Just temp!!!!!
+        $sMarmTempTsUrl = $this->getTempTsUrl($oUser->oxuser__oxusername->value,$oOrder->oxorder__oxordernr->value);
+        $oSmarty->assign( "sMarmTempTsUrl", $sMarmTempTsUrl);
 
         $oOrderArt = oxNew( 'oxorderarticle' );
         $oOrderArtTable = $oOrderArt->getViewName();
@@ -171,6 +175,11 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
         }
         
         return $sReviewMode;
+    }
+    
+    public function getTempTsUrl($buyerEmail,$shopOrderID)
+    {
+        return 'https://www.trustedshops.de/bewertung/bewerten_X666BC6E2EDB073A66022A729B735AB00.html&buyerEmail='.urlencode(base64_encode($buyerEmail)).'&shopOrderID='.urlencode(base64_encode($shopOrderID));
     }
     
 }
