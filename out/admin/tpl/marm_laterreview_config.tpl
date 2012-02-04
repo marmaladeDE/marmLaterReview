@@ -126,6 +126,18 @@ function _groupExp(el) {
             	</dd>
             	<div class="spacer"></div>
             </dl>
+            
+            <dl>
+                <dt>
+                   [{ oxmultilang ident=MARM_LATERREVIEW_SUBJECT }]<br />
+				   <input size="100" type="text" name="confstrs[marmLaterreviewSubject]" value="[{if !$confstrs.marmLaterreviewSubject }]Bitte bewerten Sie uns.[{else}][{ $confstrs.marmLaterreviewSubject }][{/if}]" />
+                </dt>
+                <dd>
+                    
+                </dd>
+                <div class="spacer"></div>
+            </dl>
+            
             <dl>
                 <dt></dt>
                 <dd><input type="submit" value="[{ oxmultilang ident=MARM_LATERREVIEW_CONFIG_SAVE }]"  /></dd>

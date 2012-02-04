@@ -58,6 +58,7 @@ class marm_laterreview_do {
         $marmLaterreviewDelay = $oOxidConfig->getConfigParam( "marmLaterreviewDelay" );
         $marmLaterreviewHidden = $oOxidConfig->getConfigParam( "marmLaterreviewHidden" );
         $marmLaterreviewMod = $oOxidConfig->getConfigParam( "marmLaterreviewMod" );
+        $marmLaterreviewSubject = $oOxidConfig->getConfigParam( "marmLaterreviewSubject" );
         
         if($marmLaterreviewHidden != $_REQUEST['token']){
             die('forbidden');
@@ -76,6 +77,7 @@ class marm_laterreview_do {
 		                                      AND OXORDERNR >=".(int)$marmLaterreviewLastorder."
 		                                      LIMIT ".(int)$marmLaterreviewCount;
 
+        echo ($sSelect);
 		$oOrders = oxNew( "oxlist" );
 		$oOrders->init( 'oxorder' );
 		$oOrders->selectString($sSelect);
@@ -84,7 +86,7 @@ class marm_laterreview_do {
 		
         foreach($oOrders as $oOrd){
             
-            $wasSent = $oEmail->sendReviewEmailToUser($oOrd, 'Bitte bewerten');
+            $wasSent = $oEmail->sendReviewEmailToUser($oOrd, $marmLaterreviewSubject);
             if($marmLaterreviewDebug){
                 echo "Order mit id ".$oOrd->oxorder__oxid->value." send result: ".(int)$wasSent."<br/>";
             }
