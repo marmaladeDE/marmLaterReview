@@ -23,18 +23,6 @@ if (!function_exists('getShopBasePath')) {
 
 set_include_path(get_include_path() . PATH_SEPARATOR . getShopBasePath());
 
-/**
- * Returns true.
- *
- * @return bool
- */
-if ( !function_exists( 'isAdmin' )) {
-    function isAdmin()
-    {
-        return true;
-    }
-}
-
 error_reporting( E_ALL ^ E_NOTICE );
 
 // custom functions file
