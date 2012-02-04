@@ -24,4 +24,10 @@ $aLang = array(
 	'MARM_LATERREVIEW_CONFIG_MOD_RANDOM'						=> 'random',
     'MARM_LATERREVIEW_CONFIG_SAVE' 								=> 'Save',
     'MARM_LATERREVIEW_SUBJECT' 								    => 'Subject of mail:',
+    'MARM_LATERREVIEW_START'							        => 'Thank you for your order!<br /><br />We hope you get everything just in time and enjoy the products. We would be happy to get a feedback from you!',
+    'MARM_LATERREVIEW_START_PLAIN'							    => 'Thank you for your order!
+                                                                    
+                                                                    We hope you get everything just in time and enjoy the products. We would be happy to get a feedback from you!',
+	'MARM_LATERREVIEW_ARTNUM'							        => 'Art.Nr.:',
+	'MARM_LATERREVIEW_REVIEW'							        => 'review',
 );

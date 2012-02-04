@@ -103,7 +103,7 @@ class marm_laterreview_do {
                 $oDb->Execute($sUpdate);
             }else{
                 if($marmLaterreviewDebug){
-                    echo "Fehler beim Versand der E-Mail f&uuml;r die Bestellung ".$oOrd->oxorder__oxordernr->value."\n";
+                    echo "Fehler beim Versand der E-Mail f&uuml;r die Bestellung ".$oOrd->oxorder__oxordernr->value."<br />\n";
                 }
                 $sUpdate = "UPDATE {$sTable} set marm_laterreview_status = 2 WHERE OXID =".$oDb->quote($oOrd->oxorder__oxid->value);
                 $oDb->Execute($sUpdate);
