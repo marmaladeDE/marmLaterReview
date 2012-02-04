@@ -30,4 +30,5 @@ $aLang = array(
                                                                     We hope you get everything just in time and enjoy the products. We would be happy to get a feedback from you!',
 	'MARM_LATERREVIEW_ARTNUM'							        => 'Art.Nr.:',
 	'MARM_LATERREVIEW_REVIEW'							        => 'review',
+	'MARM_LATERREVIEW_TS_YOU'							        => 'Your opinion: Give us a feedback.',
 );
