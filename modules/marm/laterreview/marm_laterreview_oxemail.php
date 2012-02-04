@@ -109,10 +109,12 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
      */
     public function setMarmBody()
     {
-    
+        
+        $oSmarty = $this->_getSmarty();
+        
         $sReviewMode = $this->getReviewMode();
         
-        if($sReviewMode == 'trustedshop')
+        if($sReviewMode == 'product')
         {
             
             // Set the html template for mail
@@ -154,6 +156,8 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
      */    
     public function getReviewMode()
     {
+        $myConfig = $this->getConfig();
+        
         $sReviewMode = $myConfig->getConfigParam( 'marmLaterreviewMod' );
         
         if($sReviewMode == 'random')

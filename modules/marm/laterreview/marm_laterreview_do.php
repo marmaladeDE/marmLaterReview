@@ -75,13 +75,14 @@ class marm_laterreview_do {
 		                                      AND OXSENDDATE != 0 
 		                                      AND DATEDIFF(OXSENDDATE ,now()) < -".(int)$marmLaterreviewDelay."
 		                                      AND OXORDERNR >=".(int)$marmLaterreviewLastorder."
+                                              ORDER BY OXORDERNR 
 		                                      LIMIT ".(int)$marmLaterreviewCount;
 
 
 		$oOrders = oxNew( "oxlist" );
 		$oOrders->init( 'oxorder' );
 		$oOrders->selectString($sSelect);
-		
+
         if($marmLaterreviewDebug && $oOrders->count() < 1)
         {
             die('Keine Mails zum Versand gefunden.');
@@ -92,11 +93,19 @@ class marm_laterreview_do {
         foreach($oOrders as $oOrd){
             
             $wasSent = $oEmail->sendReviewEmailToUser($oOrd, $marmLaterreviewSubject);
-            if($marmLaterreviewDebug && $wasSent){
-                echo "E-Mail f&uuml;r die Bestellung ".$oOrd->oxorder__oxordernr->value." verschickt.<br/>\n";
-            }
-            if($wasSent){
+            
+            if($wasSent)
+            {
+                if($marmLaterreviewDebug){
+                    echo "E-Mail f&uuml;r die Bestellung ".$oOrd->oxorder__oxordernr->value." verschickt.<br/>\n";
+                }
                 $sUpdate = "UPDATE {$sTable} set marm_laterreview_status = 1 WHERE OXID =".$oDb->quote($oOrd->oxorder__oxid->value);
+                $oDb->Execute($sUpdate);
+            }else{
+                if($marmLaterreviewDebug){
+                    echo "Fehler beim Versand der E-Mail f&uuml;r die Bestellung ".$oOrd->oxorder__oxordernr->value."\n";
+                }
+                $sUpdate = "UPDATE {$sTable} set marm_laterreview_status = 2 WHERE OXID =".$oDb->quote($oOrd->oxorder__oxid->value);
                 $oDb->Execute($sUpdate);
             }
         }
