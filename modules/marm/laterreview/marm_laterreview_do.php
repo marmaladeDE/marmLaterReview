@@ -92,8 +92,8 @@ class marm_laterreview_do {
         foreach($oOrders as $oOrd){
             
             $wasSent = $oEmail->sendReviewEmailToUser($oOrd, $marmLaterreviewSubject);
-            if($marmLaterreviewDebug){
-                echo "Order mit id ".$oOrd->oxorder__oxid->value." send result: ".(int)$wasSent."<br/>";
+            if($marmLaterreviewDebug && $wasSent){
+                echo "E-Mail f&uuml;r die Bestellung ".$oOrd->oxorder__oxordernr->value." verschickt.<br/>\n";
             }
             if($wasSent){
                 $sUpdate = "UPDATE {$sTable} set marm_laterreview_status = 1 WHERE OXID =".$oDb->quote($oOrd->oxorder__oxid->value);
