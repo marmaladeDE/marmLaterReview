@@ -4,7 +4,7 @@
   <title>[{$subject}]</title>
   <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
   </head>
-  <body bgcolor="#FFFFFF" link="#355222" alink="#355222" vlink="#355222" style="font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px;">
+  <body bgcolor="#FFFFFF" link="#35C1FD" alink="#35C1FD" vlink="#35C1FD" style="font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px;">
     <img src="[{$oViewConf->getImageUrl()}]logo_white.gif" border="0" hspace="0" vspace="0" alt="[{ $shop->oxshops__oxname->value }]" align="texttop"><br><br>
     <br>
     [{ oxmultilang ident="MARM_LATERREVIEW_START" }]
