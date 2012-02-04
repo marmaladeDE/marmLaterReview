@@ -104,7 +104,7 @@ function _groupExp(el) {
             
             <dl>
                 <dt>
-                   [{ oxmultilang ident=MARM_LATERREVIEW_CONFIG_URL }]: <a target="_blank" href="[{$oViewConf->getBaseDir()}]index.php?cl=marm_laterreview&amp;token=[{ $confstrs.marmLaterreviewHidden }]">[{$oViewConf->getBaseDir()}]index.php?cl=marm_laterreview&token=[{ $confstrs.marmLaterreviewHidden }]</a>
+                   [{ oxmultilang ident=MARM_LATERREVIEW_CONFIG_URL }]: <a target="_blank" href="[{$oViewConf->getBaseDir()}]modules/marm/laterreview/marm_laterreview_do.php?token=[{ $confstrs.marmLaterreviewHidden }]">[{$oViewConf->getBaseDir()}]modules/marm/laterreview/marm_laterreview_do.php?token=[{ $confstrs.marmLaterreviewHidden }]</a>
                 </dt>
                 <dd>
                     
