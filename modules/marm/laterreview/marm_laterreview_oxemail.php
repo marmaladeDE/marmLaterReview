@@ -65,8 +65,9 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
         $oOrderArt = oxNew( 'oxorderarticle' );
         $oOrderArtTable = $oOrderArt->getViewName();
         
-        $sSelect = "SELECT * FROM {$oOrderArtTable} WHERE OXORDERID = ".(int)$oOrder->oxorder__oxid->value;
+        $sSelect = "SELECT * FROM {$oOrderArtTable} WHERE OXORDERID = '".$oOrder->oxorder__oxid->value."'";
 
+        
 		$oArticels = oxNew( "oxlist" );
 		$oArticels->init( 'oxorderarticle' );
 		$oArticels->selectString($sSelect);
@@ -97,8 +98,17 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
         }
 
         $this->setSubject( $sSubject );
+		
+		if ( $oUser->oxuser__oxfname->value )
+		{
 
-        $sFullName = $oUser->oxuser__oxfname->getRawValue() . " " . $oUser->oxuser__oxlname->getRawValue();
+			$sFullName = $oUser->oxuser__oxfname->getRawValue() . " " . $oUser->oxuser__oxlname->getRawValue();
+		} elseif ( $oUser->oxuser__oxlname->value )
+		{
+			$sFullName = $oUser->oxuser__oxlname->getRawValue();
+		} else {
+			$sFullName = '';
+		}
 
         $this->setRecipient( $oUser->oxuser__oxusername->value, $sFullName );
         $this->setReplyTo( $oShop->oxshops__oxorderemail->value, $oShop->oxshops__oxname->getRawValue() );
