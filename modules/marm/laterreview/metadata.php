@@ -71,14 +71,20 @@ $aModule = array(
                 'group'      => 'main',
                 'name'       => 'sMode',
                 'type'       => 'select',
-                'value'      => 'shopbewertung',
-                'constrains' => 'shopbewertung|trustedshop|random'
+                'value'      => 'shop',
+                'constrains' => 'shop|trustedshop|random'
         ),
         array(
                 'group' => 'main',
                 'name'  => 'sSubject',
                 'type'  => 'str',
                 'value' => 'Ihre Meinung ist uns wichtig.'
+        ),
+        array(
+                'group' => 'main',
+                'name'  => 'sTrustedShopId',
+                'type'  => 'str',
+                'value' => 'X123BC1E1EDB011A123456A729B735AB00'
         ),
     )
 );

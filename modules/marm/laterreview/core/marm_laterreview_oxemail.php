@@ -128,7 +128,7 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
         
         $sReviewMode = $this->getReviewMode();
         
-        if($sReviewMode == 'product')
+        if($sReviewMode == 'shop')
         {
             
             // Set the html template for mail
@@ -170,9 +170,12 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
      */    
     public function getReviewMode()
     {
-        $myConfig = $this->getConfig();
+        $oConf = oxRegistry::getConfig();
+            
+        $sShopId = $oConf->getShopId();
         
-        $sReviewMode = $myConfig->getConfigParam( 'marmLaterreviewMod' );
+        $sReviewMode = $oConf->getShopConfVar('sMode', $sShopId, 'module:marm/laterreview');
+        
         
         if($sReviewMode == 'random')
         {
@@ -180,7 +183,7 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
             {
                 $sReviewMode = 'trustedshop';
             }else{
-                $sReviewMode = 'product';
+                $sReviewMode = 'shop';
             }
         }
         
@@ -189,7 +192,13 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
     
     public function getTempTsUrl($buyerEmail,$shopOrderID)
     {
-        return 'https://www.trustedshops.de/bewertung/bewerten_X666BC6E2EDB073A66022A729B735AB00.html&buyerEmail='.urlencode(base64_encode($buyerEmail)).'&shopOrderID='.urlencode(base64_encode($shopOrderID));
+        $oConf = oxRegistry::getConfig();
+            
+        $sShopId = $oConf->getShopId();
+        
+        $sTrustedShopId = $oConf->getShopConfVar('sTrustedShopId', $sShopId, 'module:marm/laterreview');
+        
+        return 'https://www.trustedshops.de/bewertung/bewerten_' . $sTrustedShopId . '.html&buyerEmail='.urlencode(base64_encode($buyerEmail)).'&shopOrderID='.urlencode(base64_encode($shopOrderID));
     }
     
 }
