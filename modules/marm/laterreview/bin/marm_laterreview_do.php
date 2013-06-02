@@ -1,19 +1,22 @@
 <?php
 
-include('../../../bootstrap.php');
+include('../../../../bootstrap.php');
 
 class marm_laterreview_do {    
     
     public function startSending(){
     
-        $oOxidConfig                = oxConfig::getInstance();
-        $marmLaterreviewCount       = $oOxidConfig->getConfigParam( "marmLaterreviewCount" );
-        $marmLaterreviewDebug       = $oOxidConfig->getConfigParam( "marmLaterreviewDebug" );
-        $marmLaterreviewLastorder   = $oOxidConfig->getConfigParam( "marmLaterreviewLastorder" );
-        $marmLaterreviewDelay       = $oOxidConfig->getConfigParam( "marmLaterreviewDelay" );
-        $marmLaterreviewHidden      = $oOxidConfig->getConfigParam( "marmLaterreviewHidden" );
-        $marmLaterreviewMod         = $oOxidConfig->getConfigParam( "marmLaterreviewMod" );
-        $marmLaterreviewSubject     = $oOxidConfig->getConfigParam( "marmLaterreviewSubject" );
+        $oConf = oxRegistry::getConfig();
+            
+        $sShopId = $oConf->getShopId();
+        
+        $marmLaterreviewCount       = $oConf->getShopConfVar('iCount', $sShopId, 'module:marm/laterreview');
+        $marmLaterreviewDebug       = $oConf->getShopConfVar('blDebugMode', $sShopId, 'module:marm/laterreview');
+        $marmLaterreviewLastorder   = $oConf->getShopConfVar('iStartWithOrder', $sShopId, 'module:marm/laterreview');
+        $marmLaterreviewDelay       = $oConf->getShopConfVar('iDelay', $sShopId, 'module:marm/laterreview');
+        $marmLaterreviewHidden      = $oConf->getShopConfVar('sToken', $sShopId, 'module:marm/laterreview');
+        $marmLaterreviewMod         = $oConf->getShopConfVar('sMode', $sShopId, 'module:marm/laterreview');
+        $marmLaterreviewSubject     = $oConf->getShopConfVar('sSubject', $sShopId, 'module:marm/laterreview');
         
         if($marmLaterreviewHidden != $_REQUEST['token']){
             die('forbidden');
