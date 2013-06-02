@@ -1,11 +1,16 @@
-Kurzanleitung
+marmalade :: later Review
+=========================
+Dieses Modul ermöglicht es, die Aufforderung zur Bewertung nach einem 
+vordefinierten Zeitraum zu versenden, anstelle direkt mit der Bestellbestätigung.
 
-* Kopiere 'admin', 'modules', 'out' und 'core' ins oxid Verzeichnis
+Installation
+------------
+*    Kopieren Sie das Modul in das modules-Verzeichnis
 
-* install.sql ausf�hren
+*    Führen Sie die Datei install.sql aus
 
-* oxemail => marm/laterreview/marm_laterreview_oxemail
+*    Aktivieren Sie das Modul im Backend
 
-* Template Vorlage mit dem Link
+*    Setzen Sie einen Cronjob auf shoproot/modules/marm/laterreview/marm_laterreview_do.php
 
-   out/basic/tpl/email/html/order_review.tpl
+*    Passen Sie Ihre Templates an.
