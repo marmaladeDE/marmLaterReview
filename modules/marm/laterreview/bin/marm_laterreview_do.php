@@ -2,6 +2,9 @@
 
 include('../../../../bootstrap.php');
 
+$oMarmReview = new marm_laterreview_do();
+$oMarmReview->startSending();
+
 class marm_laterreview_do {    
     
     public function startSending(){
@@ -63,7 +66,6 @@ class marm_laterreview_do {
         foreach($oOrders as $oOrd){        	
             
             $wasSent = $oEmail->sendReviewEmailToUser($oOrd, $marmLaterreviewSubject);
-            //$wasSent = true;
             
             if($wasSent)
             {            	
@@ -83,7 +85,3 @@ class marm_laterreview_do {
         
     }
 }
-
-
-$oMarmReview = new marm_laterreview_do();
-$oMarmReview->startSending();

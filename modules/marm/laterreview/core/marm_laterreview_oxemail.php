@@ -47,14 +47,12 @@ class marm_laterreview_oxemail extends marm_laterreview_oxemail_parent{
         // create messages
         $oSmarty = $this->_getSmarty();
         
-        if(method_exists($this, 'setUser')){
-            $this->setUser( $oUser );   
-        }else{
-            $oShop = $this->_getShop();
-            $oSmarty->assign( "user", $oUser );
-            $oSmarty->assign( "shop", $oShop );
-            $oSmarty->assign( "oViewConf", $oShop );
-        }
+        $this->setUser( $oUser );
+        
+        $oSmarty->assign( "user", $oUser );
+        $oSmarty->assign( "shop", $oShop );
+        $oSmarty->assign( "oViewConf", $this->getViewConfig() );
+
         
         $oSmarty->assign( "order", $oOrder);
         
