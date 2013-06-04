@@ -21,7 +21,8 @@ class marm_laterreview_do {
         $marmLaterreviewMod         = $oConf->getShopConfVar('sMode', $sShopId, 'module:marm/laterreview');
         $marmLaterreviewSubject     = $oConf->getShopConfVar('sSubject', $sShopId, 'module:marm/laterreview');
         
-        if($marmLaterreviewHidden != $_REQUEST['token']){
+        if($marmLaterreviewHidden != $oConf->getRequestParameter('token'))
+        {
             die('forbidden');
         }
         
