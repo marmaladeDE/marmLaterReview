@@ -32,10 +32,10 @@ $aModule = array(
         'oxemail' => 'marm/laterreview/core/marm_laterreview_oxemail'
     ),
     'templates' => array(
-         'marm_email_order_review_shop.tpl'         => 'marm/laterreview/views/admin/email/html/marm_email_order_review_shop.tpl',
-         'marm_email_order_review_ts.tpl'           => 'marm/laterreview/views/admin/email/html/marm_email_order_review_ts.tpl',
-         'marm_email_order_review_shop_plain.tpl'   => 'marm/laterreview/views/admin/email/plain/marm_email_order_review_shop_plain.tpl',
-         'marm_email_order_review_ts_plain.tpl'     => 'marm/laterreview/views/admin/email/plain/marm_email_order_review_ts_plain.tpl',
+         'marm_email_order_review_shop.tpl'         => 'marm/laterreview/views/email/html/marm_email_order_review_shop.tpl',
+         'marm_email_order_review_ts.tpl'           => 'marm/laterreview/views/email/html/marm_email_order_review_ts.tpl',
+         'marm_email_order_review_shop_plain.tpl'   => 'marm/laterreview/views/email/plain/marm_email_order_review_shop_plain.tpl',
+         'marm_email_order_review_ts_plain.tpl'     => 'marm/laterreview/views/email/plain/marm_email_order_review_ts_plain.tpl',
     ),
     'settings'  => array(
         array(
